@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+
+<link rel="stylesheet" href="{% static 'search/templates/search.css' %}">
+
+{% endblock %}
+{% block 'title' %} Encontre um livro {% endblock %}
+
+{%block 'body' %}
+
+{% for item in book %}
+    <div>
+        <img src="{{item.thumbnail}}">
+        <h3>{{item.title}}</h3>
+        <p>{{item.authors}}</p>
+        <p>data de publicação: {{item.publishedDate}}</p>
+        <p>descrição: {{item.description}}</p>
+        <p>snippet: {{item.textSnippet}}</p>
+    </div>
+{% endfor %}
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'head' %}
+
+    {% block 'title' %}    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'search/css/home.css' %}">
+
+{% endblock %}
+
+{% block 'body' %}
+
+    <div class="mensagem" >
+        <p>... "No codigo penal soviético, a punição alternativa
+            à morte é a deportação do criminoso do criminoso de seu país. Se
+            for verdadeiramente criminoso que merece punição, não
+            creio que mereça uma punição tão grave quanto a morte literária" ...</p>
+        <p><b>Carta a Stálin, enviada por Zamiátin, 1931, após repressão literária</b></p>
+    </div>   
+    <form class="form" action="{% url 'search' %}" method="POST"> {% csrf_token %}
+        <h2 class="titulo_area_cadastrar">Insira o nome do livro</h2>
+        <br>
+        <input name="bookname" type="text" placeholder="nome do livro">
+{% endblock %}
