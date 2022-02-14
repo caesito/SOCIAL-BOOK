@@ -34,6 +34,7 @@ class Book:
 
 class ControllerGetInfoBook:
 
+
     @classmethod
     def created_book(cls, search):
         content=GetBook.get_book(search)
@@ -42,30 +43,34 @@ class ControllerGetInfoBook:
         for book in content:
 
             info=book['volumeInfo']
-            title=info['title']
-            try:
-                authors=info['authors'][0]
-            except:
-                authors='dont exist this information'
+            title=info.get('title')
+            authors=info.get('authors')
+            publishedDate=info.get('publishedDate')
+            description=info.get('description')
+            image=info.get('imageLinks')
+            searchInfo=book.get('searchInfo')
 
-            publishedDate=info['publishedDate']
-            try:
-                description=info['description']
-            except:
-                description='dont exist this information'
-            try:
-                thumbnail=info['imageLinks']['smallThumbnail']
-            except:
-                thumbnail='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLCYC5ebxHUUA1vdA5PlLKNOC26M4terIXsg&usqp=CAU'
-            try:
-                textSnippet=book['searchInfo']['textSnippet']
-            except:
+            if authors is None:
+                author='dont exist this information'
+            else:
+                author=authors[0]
+            if image is None:
+                thumbnail='dont exist this information'
+            else:
+                thumbnail=image.get('smallThumbnail')
+            if searchInfo is None:
                 textSnippet='dont exist this information'
+            else:
+                textSnippet=searchInfo.get('textSnippet')
+            if description is None: 
+                description='dont exist this information'
             
-            book=Book(title, authors, publishedDate, description, thumbnail, textSnippet)
+            book=Book(title, author, publishedDate, description, thumbnail, textSnippet)
             book_list.append(book)
-        
+
         return book_list
+
+    
 
 def home(request):
     return render(request, 'home.html')
