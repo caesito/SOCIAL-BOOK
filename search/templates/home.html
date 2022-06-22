@@ -3,19 +3,22 @@
 {% load static %}
 
 {% block 'head' %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
+    
+    {% block 'title' %}Home{% endblock %}
 
-    {% block 'title' %}    {% endblock %}
-
-    <link rel="stylesheet" href="{% static 'search/css/home.css' %}">
+    
 
 {% endblock %}
 
 {% block 'body' %}
 
-    <div class="mensagem" >
-    </div>   
-    <form class="form" action="{% url 'search' %}" method="POST"> {% csrf_token %}
-        <h2 class="titulo_area_cadastrar">Buscar</h2>
-        <br>
-        <input name="bookname" type="text" placeholder="nome do livro">
+    <div class="content" >
+    </div> 
+    <div id="formis">      
+        <form class="form" action="{% url 'search' %}" method="POST"> {% csrf_token %}
+            <h2 class="titulo_area_cadastrar">Buscar</h2>
+            <br>
+            <input name="bookname" class="insert-book" type="text" placeholder="Insira o nome do livro:">
+    </div>
 {% endblock %}

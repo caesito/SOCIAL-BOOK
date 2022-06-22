@@ -1,0 +1,25 @@
+.mensagem{
+    font-family: Helvetica, sans-serif;
+}
+
+
+
+#formis{
+    text-align: center;
+}
+
+body{
+    background: linear-gradient(to right, #725cffe5, #4b3abbf5);
+}
+
+.insert-book{
+  
+  background: linear-gradient(to right, #725cffe8, #4b3abb);
+  background-position: 0;
+  width: 90%;
+  padding: 15px;
+  border-radius: 5px;
+  border: black;
+ 
+  
+}
