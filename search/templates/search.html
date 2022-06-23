@@ -4,23 +4,63 @@
 
 {% block 'head' %}
 
-<link rel="stylesheet" href="{% static 'search/templates/search.css' %}">
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
 
 {% endblock %}
 {% block 'title' %} Encontre um livro {% endblock %}
 
 {%block 'body' %}
+<nav class="navbar navbar-expand-lg navbar-light  bg-light">
+   
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul  class="navbar-nav ">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}"><span>HOME</span></a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sing In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Sing Up</a>
+          </li>
+      <div>   
 
-{% for item in book %}
-    <div>
-        <img src="{{item.thumbnail}}">
-        <h3>{{item.title}}</h3>
-        <p>{{item.authors}}</p>
-        <p>data de publicação: {{item.publishedDate}}</p>
-        <p>descrição: {{item.description}}</p>
-        <p>snippet: {{item.textSnippet}}</p>
+        <form class="form-inline" >
+            <input  class="form-control " type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-{% endfor %}
+  </nav>
+
+    <div class="row" style="margin-top: 15px;">
+    {% for item in book %}
+        <div  class='col-3'>
+            <div class="card mb-3" style="min-width: 400px; min-height: 350px;">
+                <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{item.thumbnail}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <p class="card-text">{{item.authors}}</p>
+                    <p class="card-text">data de publicação: {{item.publishedDate}}</p>
+                    <p class="card-text"><small class="text-muted">snippet: {{item.textSnippet}}</small></p>
+                    <button class="ver-mais">Ver mais</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
 {% endblock %}
 
 

@@ -1,13 +1,28 @@
-.mensagem{
-    font-family: Helvetica, sans-serif;
-}
-
-
 
 #formis{
     text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 200px;
 }
 
+h1{
+    font-family:'League Gothic','Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    color: #231963;
+}
+
+button{
+    background-color: #4b3abb15;
+    border: none;
+    border-radius: 5px;
+    
+}
+
+img{
+    width: 25px;
+    
+}
 body{
     background: linear-gradient(to right, #725cffe5, #4b3abbf5);
 }

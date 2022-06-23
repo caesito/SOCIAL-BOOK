@@ -3,9 +3,12 @@
 {% load static %}
 
 {% block 'head' %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{% static 'css/home.css' %}"> 
     
-    {% block 'title' %}Home{% endblock %}
+    {% block 'title' %}<title>Home</title>{% endblock %}
 
     
 
@@ -13,12 +16,12 @@
 
 {% block 'body' %}
 
-    <div class="content" >
-    </div> 
     <div id="formis">      
+        <h1>Buscar</h1>
         <form class="form" action="{% url 'search' %}" method="POST"> {% csrf_token %}
-            <h2 class="titulo_area_cadastrar">Buscar</h2>
-            <br>
+           <button type="submit" ><img src ="{% static 'img/lupa.png' %}"></button>
+            
             <input name="bookname" class="insert-book" type="text" placeholder="Insira o nome do livro:">
+        </form>
     </div>
 {% endblock %}
