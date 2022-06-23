@@ -12,7 +12,7 @@ def search(request):
 def response_search(request):
     booksearch= search(request)
     book=ControllerGetInfoBook.created_book(f'{booksearch}')
-    return render(request,'search.html',{'book':book})
+    return render(request,'result.html',{'book':book})
 
 
 

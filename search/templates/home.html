@@ -18,7 +18,7 @@
 
     <div id="formis">      
         <h1>Buscar</h1>
-        <form class="form" action="{% url 'search' %}" method="POST"> {% csrf_token %}
+        <form class="form" action="{% url 'result' %}" method="POST"> {% csrf_token %}
            <button type="submit" ><img src ="{% static 'img/lupa.png' %}"></button>
             
             <input name="bookname" class="insert-book" type="text" placeholder="Insira o nome do livro:">
