@@ -19,8 +19,8 @@
 
 <div>
 
-    <form method="post" > {% csrf_token %}
-
+    <form method="post" action="{% url 'singup_validate' %}"> {% csrf_token %}
+ 
         <input type="text" name="name" placeholder="Nome...">
         <input type="text" name="lastname" placeholder="Sobrenome..." >
         <input type="text" name="username" placeholder="Nome de usuario...">
@@ -29,7 +29,7 @@
         <button type="submit">Cadastrar</button>
     
     </form>
-    
+
 </div>
 
 {% endblock %}
