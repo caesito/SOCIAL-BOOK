@@ -4,6 +4,23 @@
 
 {% block 'head' %}
 
+<style>
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+margin: 0px;
+background: #4b3abbf5;
+}
+</style>
+
 <link rel="stylesheet" href="{% static 'css/search.css' %}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -13,24 +30,41 @@
 
 {% block 'title' %} Cadastro {% endblock %}
 
-
-
 {% block 'body' %}
 
-<div>
+<div class="box">
+    <div class="container">
+        <div  class="card" style="width: 24rem;"> 
+            <form method="POST" action="{% url 'singup_validate' %}" class="px-4 py-3"> {% csrf_token %}
+                <div class="form-group">
+                <h2><span class="badge badge-secondary">Cadastre-se</span></h2>
 
-    <form method="post" action="{% url 'singup_validate' %}"> {% csrf_token %}
- 
-        <input type="text" name="name" placeholder="Nome...">
-        <input type="text" name="lastname" placeholder="Sobrenome..." >
-        <input type="text" name="username" placeholder="Nome de usuario...">
-        <input type="email" name="email" placeholder="exemplo@email.com">]
-        <input type="password" name="password" placeholder="Senha...">
-        <button type="submit">Cadastrar</button>
-    
-    </form>
-
+                <label for="exampleDropdownFormEmail1">Nome</label>
+                <input name="name" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="name">
+                </div>
+                <div class="form-group">
+                <label  for="exampleDropdownFormPassword1">Sobrenome</label>
+                <input name="lastname" type="text" class="form-control" id="exampleDropdownFormPassword1" placeholder="Sobrenome">
+                </div>
+                <div class="form-group">
+                <label  for="exampleDropdownFormPassword1">Nome de usuario</label>
+                <input name="username" type="text" class="form-control" id="exampleDropdownFormPassword1" placeholder="Username">
+                </div>
+                <div class="form-group">
+                <label  for="exampleDropdownFormPassword1">Email</label>
+                <input name="email" type="email" class="form-control" id="exampleDropdownFormPassword1" placeholder="exemplo@exemplo.com">
+                </div>
+                <div class="form-group">
+                <label  for="exampleDropdownFormPassword1">Senha</label>
+                <input name="password" type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="senha">
+                </div>
+                <button type="submit" class="btn btn-primary">Sing up</button>
+                <button type="button" class="btn btn-success">Login</button>
+            </form>
+        </div>
+    </div>
 </div>
+
 
 {% endblock %}
 
