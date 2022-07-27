@@ -34,7 +34,7 @@ background: #4b3abbf5;
         <div  class="card" style="width: 18rem;"> 
             <form method="POST" action="{% url 'validate_login' %}" class="px-4 py-3"> {% csrf_token %}
                 <div class="form-group">
-                    <h2><span class="badge badge-secondary">Cadastre-se</span></h2>
+                    <h2><span class="badge badge-secondary">Login</span></h2>
                     <label for="exampleDropdownFormEmail1">Nome de usuario</label>
                     <input name="username" type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Username">
                 </div>
@@ -53,7 +53,7 @@ background: #4b3abbf5;
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </form>
                 <div></div>
-                <a class="dropdown-item" href="#">New around here? Sign up</a>
+                <a class="dropdown-item" href="/auth/cadastro/">New around here? Sign up</a>
                 <a class="dropdown-item" href="#">Forgot password?</a>
         </div>
     </div>
